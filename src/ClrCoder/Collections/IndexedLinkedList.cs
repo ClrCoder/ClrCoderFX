@@ -494,9 +494,7 @@ namespace ClrCoder.Collections
             return false;
         }
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
         [Serializable]
-#endif
         private struct Enumerator : IDictionaryEnumerator, IDisposable
         {
             private LinkedList<KeyValuePair<TKey, TValue>>.Enumerator _enumerator;

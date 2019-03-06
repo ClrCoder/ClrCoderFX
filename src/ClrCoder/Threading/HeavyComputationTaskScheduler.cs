@@ -53,9 +53,7 @@ namespace ClrCoder.Threading
                     if (_instance == null)
                     {
                         _instance = new HeavyComputationTaskScheduler();
-#if NETSTANDARD2_0
                         AppDomain.CurrentDomain.ProcessExit += CurrentDomainProcessExit;
-#endif
                     }
 
                     return _instance;
@@ -184,7 +182,6 @@ namespace ClrCoder.Threading
             return Task.Factory.StartNew(function, cancellationToken, TaskCreationOptions.None, Instance).Unwrap();
         }
 
-#if NETSTANDARD2_0
         private static void CurrentDomainProcessExit(object sender, EventArgs e)
         {
             HeavyComputationTaskScheduler instanceToDispose;
@@ -196,8 +193,6 @@ namespace ClrCoder.Threading
             // Synchronously waiting for shutdown.
             instanceToDispose?.DisposeAsync().GetAwaiter().GetResult();
         }
-
-#endif
 
         /// <inheritdoc/>
         public Task DisposeAsync() => _threadPool.DisposeAsync();
@@ -239,17 +234,12 @@ namespace ClrCoder.Threading
             {
                 ManualResetEventSlim threadStartedEvent = new ManualResetEventSlim();
 
-#if NETSTANDARD2_0
                 for (int i = 0; i < (int)(Environment.ProcessorCount * 1.25); i++)
                 {
                     StartNewThread(threadStartedEvent, ThreadPriority.BelowNormal);
                 }
-#else
-            throw new NotImplementedException("Use unmanaged API to slowdown thread priority. For NetStandard 1.0 and NetStandard 1.1 use long running task instead of Tthread.");
-#endif
             }
 
-#if NETSTANDARD2_0
             private void StartNewThread(ManualResetEventSlim threadStartedEvent, ThreadPriority priority)
             {
                 var thread = new Thread(ThreadProc);
@@ -259,9 +249,6 @@ namespace ClrCoder.Threading
                 thread.Start(threadStartedEvent);
                 threadStartedEvent.WaitAndReset();
             }
-
-#endif
-
             private void ThreadProc(object state)
             {
                 var threadStartedEvent = (ManualResetEventSlim)state;

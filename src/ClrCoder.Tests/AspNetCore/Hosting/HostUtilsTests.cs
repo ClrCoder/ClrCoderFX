@@ -7,7 +7,6 @@ namespace ClrCoder.Tests.AspNetCore.Hosting
 {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
-#if NET46 || NETCOREAPP1_1
     using System.Threading.Tasks;
 
     using ClrCoder.AspNetCore.Hosting;
@@ -65,6 +64,4 @@ namespace ClrCoder.Tests.AspNetCore.Hosting
             }
         }
     }
-
-#endif
 }

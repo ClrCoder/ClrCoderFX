@@ -9,9 +9,7 @@ namespace ClrCoder.ComponentModel.IndirectX
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using System.Runtime.Serialization;
-#endif
 
     /// <summary>
     /// Queried target object not found or some plugins missed.
@@ -58,8 +56,6 @@ namespace ClrCoder.ComponentModel.IndirectX
         /// </summary>
         public IxIdentifier Identifier { get; }
 
-#if NETSTANDARD2_0
-
 /// <summary>
 /// Initializes a new instance of the <see cref="IxResolveTargetNotFound"/> class with serialization data.
 /// </summary>
@@ -75,7 +71,5 @@ namespace ClrCoder.ComponentModel.IndirectX
             : base(info, context)
         {
         }
-
-#endif
     }
 }

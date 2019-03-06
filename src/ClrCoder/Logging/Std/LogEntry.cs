@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Logging.Std
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
 
     using JetBrains.Annotations;
@@ -80,5 +79,4 @@ namespace ClrCoder.Logging.Std
         [CanBeNull]
         public ExceptionDto Exception { get; set; }
     }
-#endif
 }

@@ -5,7 +5,6 @@
 
 namespace ClrCoder.AspNetCore.Mvc
 {
-#if NETSTANDARD1_6 || NETSTANDARD2_0
     using JetBrains.Annotations;
 
     using Microsoft.AspNetCore.Mvc;
@@ -25,5 +24,4 @@ namespace ClrCoder.AspNetCore.Mvc
             }
         }
     }
-#endif
 }

@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Net.Http
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Net.Http;
 
@@ -80,5 +79,4 @@ namespace ClrCoder.Net.Http
         /// </summary>
         public DateTime TimeStamp { get; private set; }
     }
-#endif
 }

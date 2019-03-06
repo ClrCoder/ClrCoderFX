@@ -6,9 +6,7 @@
 namespace ClrCoder.Threading
 {
     using System;
-#if !NETSTANDARD1_0
     using System.Collections.Concurrent;
-#endif
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
@@ -28,9 +26,7 @@ namespace ClrCoder.Threading
     {
         private readonly HashSet<WorkerThread> _workerThreads = new HashSet<WorkerThread>();
 
-#if !NETSTANDARD1_0
         private readonly BlockingCollection<ThreadPoolTask> _queuedTasks = new BlockingCollection<ThreadPoolTask>();
-#endif
 
         [CanBeNull]
         private Task _allWorkersDisposedTask;
@@ -52,11 +48,7 @@ namespace ClrCoder.Threading
         {
             VxArgs.NotNull(action, nameof(action));
 
-#if !NETSTANDARD1_0
             _queuedTasks.Add(new ThreadPoolTask(action, state));
-#else
-            throw new NotImplementedException();
-#endif
         }
 
         /// <summary>
@@ -95,8 +87,6 @@ namespace ClrCoder.Threading
                 while (!workerThread.IsDisposeStarted)
                 {
                     double queueWaitTimeInSeconds = 0;
-#if NETSTANDARD2_0
-
                     if (!_queuedTasks.TryTake(out ThreadPoolTask taskToExecute))
                     {
                         var sw = Stopwatch.StartNew();
@@ -112,10 +102,6 @@ namespace ClrCoder.Threading
                         }
                     }
 
-#else
-                    ThreadPoolTask taskToExecute;
-                    throw new NotImplementedException();
-#endif
                     workerThread.IsRunningTask = true;
                     workerThread.QueueWaitTimeInSeconds = queueWaitTimeInSeconds;
                     try

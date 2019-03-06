@@ -85,7 +85,6 @@ namespace ClrCoder.IO
 
         private async Task ReadWriteStream(Func<Stream, Task> readOrWriteProc)
         {
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1
             await _unmanagedAccessor(
                 async (bufferPtr, bufferLength) =>
                     {
@@ -100,9 +99,6 @@ namespace ClrCoder.IO
                             await readOrWriteProc(stream);
                         }
                     });
-#else
-            throw new NotSupportedException();
-#endif
         }
     }
 

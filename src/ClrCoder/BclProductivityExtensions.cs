@@ -15,9 +15,7 @@ namespace ClrCoder
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using System.Threading;
-#endif
 
     /// <summary>
     /// Extensions for core BCL classes designed to boost development productivity.
@@ -195,10 +193,8 @@ namespace ClrCoder
         /// Next exceptions cannot be processed:
         /// <see cref="OutOfMemoryException"/>,
         /// <see cref="CriticalException"/>,
-#if NETSTANDARD2_0 /// <see cref="StackOverflowException"/>,
-/// <see cref="ThreadAbortException"/>.
-#endif
-
+        /// <see cref="StackOverflowException"/>,
+        /// <see cref="ThreadAbortException"/>.
         /// Also we add <see cref="NotImplementedException"/> to this list in DEBUG mode.
         /// </remarks>
         /// <returns><see langword="true"/>, if exception can be muted/handled.</returns>
@@ -212,7 +208,6 @@ namespace ClrCoder
             }
 
 #endif
-#if NETSTANDARD2_0
             if (ex is StackOverflowException 
                 || ex is ThreadAbortException
                 || ex is AppDomainUnloadedException
@@ -222,16 +217,6 @@ namespace ClrCoder
             }
             
             return true;
-#elif NETSTANDARD1_3 || NETSTANDARD1_6
-            return !(ex is OutOfMemoryException
-                     || ex is CriticalException
-                     || ex is BadImageFormatException
-                     || ex is InvalidProgramException);
-#else
-            return !(ex is OutOfMemoryException
-                     || ex is CriticalException
-                     || ex is BadImageFormatException);
-#endif
         }
 
         /// <summary>
@@ -387,40 +372,23 @@ namespace ClrCoder
         /// <remarks>
         /// Next exceptions cannot be processed:
         /// <see cref="OutOfMemoryException"/>,
-#if NETSTANDARD2_0 /// <see cref="StackOverflowException"/>,
-/// <see cref="ThreadAbortException"/>.
-#endif
-
+        /// <see cref="StackOverflowException"/>,
+        /// <see cref="ThreadAbortException"/>.
         /// Also we add <see cref="NotImplementedException"/> to this list in DEBUG mode.
         /// </remarks>
         public static void RethrowUnprocessable([NotNull] this Exception ex)
         {
 #if DEBUG
-#if NETSTANDARD2_0
             if (ex is StackOverflowException || ex is OutOfMemoryException || ex is ThreadAbortException
                 || ex is NotImplementedException)
             {
                 throw ex;
             }
 #else
-            if (ex is OutOfMemoryException || ex is NotImplementedException)
-            {
-                throw ex;
-            }
-
-#endif
-#else
-#if NETSTANDARD2_0
             if (ex is StackOverflowException || ex is OutOfMemoryException || ex is ThreadAbortException)
             {
                 throw ex;
             }
-#else
-            if (ex is OutOfMemoryException)
-            {
-                throw ex;
-            }
-#endif
 #endif
         }
 

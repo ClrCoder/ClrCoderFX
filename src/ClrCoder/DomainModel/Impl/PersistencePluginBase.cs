@@ -5,7 +5,6 @@
 
 namespace ClrCoder.DomainModel.Impl
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Collections.Generic;
 
@@ -72,5 +71,4 @@ namespace ClrCoder.DomainModel.Impl
         public abstract TRepository ResolveRepository<TRepository>(TUnitOfWork uow)
             where TRepository : class, IRepository;
     }
-#endif
 }

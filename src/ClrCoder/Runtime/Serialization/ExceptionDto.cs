@@ -17,10 +17,7 @@ namespace ClrCoder.Runtime.Serialization
     using MoreLinq;
 
     using Newtonsoft.Json;
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System.Diagnostics;
-
-#endif
 
     /// <summary>
     /// Data transferring <c>object</c> for <see cref="Exception"/>.
@@ -69,12 +66,8 @@ namespace ClrCoder.Runtime.Serialization
                     dto.HResult = ex.HResult;
                     dto.HelpLink = ex.HelpLink;
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
                     var stackTrace = new StackTrace(ex, true);
                     dto.StackTrace = stackTrace.GetFrames().Select(StackFrameDto.FromStackFrame).ToList();
-#else
-                    dto.StackTrace = ex.StackTrace;
-#endif
 
                     foreach (DictionaryEntry dataentry in ex.Data)
                     {
@@ -132,20 +125,13 @@ namespace ClrCoder.Runtime.Serialization
         [DefaultValue(0)]
         public int HResult { get; set; }
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
         /// <summary>
         /// Exception stack trace.
         /// </summary>
         [CanBeNull]
         [ItemNotNull]
         public List<StackFrameDto> StackTrace { get; set; }
-#else /// <summary>
-/// Exception stack trace.
-/// </summary>
-        [CanBeNull]
-        [ItemNotNull]
-        public string StackTrace { get; set; }
-#endif
+
         /// <summary>
         /// Copy of <see cref="Exception.HelpLink"/>.
         /// </summary>

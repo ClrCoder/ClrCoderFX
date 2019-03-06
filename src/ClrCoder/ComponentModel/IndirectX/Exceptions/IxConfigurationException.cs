@@ -9,9 +9,7 @@ namespace ClrCoder.ComponentModel.IndirectX
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using System.Runtime.Serialization;
-#endif
 
     /// <summary>
     /// Base class for all IndirectX processable resolve exceptions.
@@ -41,7 +39,6 @@ namespace ClrCoder.ComponentModel.IndirectX
         {
         }
 
-#if NETSTANDARD2_0
 /// <summary>
 /// Initializes a new instance of the <see cref="IxConfigurationException"/> class with serialization data.
 /// </summary>
@@ -57,7 +54,5 @@ namespace ClrCoder.ComponentModel.IndirectX
             : base(info, context)
         {
         }
-
-#endif
     }
 }

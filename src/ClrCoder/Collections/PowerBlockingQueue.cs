@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Collections
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Collections.Generic;
     using System.Threading;
@@ -221,5 +220,4 @@ namespace ClrCoder.Collections
             while (hasChanges);
         }
     }
-#endif
 }

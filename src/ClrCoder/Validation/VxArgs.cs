@@ -7,9 +7,7 @@ namespace ClrCoder.Validation
 {
     using System;
     using System.Collections.Generic;
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System.Drawing;
-#endif
     using System.Reflection;
 
     using JetBrains.Annotations;
@@ -89,8 +87,6 @@ namespace ClrCoder.Validation
             }
         }
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
-
         /// <summary>
         /// Validates that Width and Height are both non negative.
         /// </summary>
@@ -103,7 +99,6 @@ namespace ClrCoder.Validation
                 throw new ArgumentOutOfRangeException(name, "Both Width and Height should be non negative");
             }
         }
-#endif
 
         /// <summary>
         /// Validates argument string is not empty.
@@ -235,7 +230,7 @@ namespace ClrCoder.Validation
             }
         }
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0 /// <summary>
+        /// <summary>
 /// Validates that Width and Height are both non zero positive.
 /// </summary>
 /// <param name="size">Size to validate.</param>
@@ -260,7 +255,6 @@ namespace ClrCoder.Validation
                 throw new ArgumentOutOfRangeException(name, "Both Width and Height should be non-zero positive");
             }
         }
-#endif
 
         /// <summary>
         /// Validates that the specified value fits into TypeChoice. Validation success for <see langword="null"/> value.
@@ -295,17 +289,10 @@ namespace ClrCoder.Validation
                     throw new ArgumentException($"{name} should use http/https", name);
                 }
             }
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
             catch (UriFormatException ex)
             {
                 throw new ArgumentException(ex.Message, name, ex);
             }
-#else
-            catch (Exception ex)
-            {
-                throw new ArgumentException(ex.Message, name, ex);
-            }
-#endif
         }
 
         /// <summary>
@@ -322,17 +309,10 @@ namespace ClrCoder.Validation
                 // ReSharper disable once ObjectCreationAsStatement
                 new Uri(uri, UriKind.Absolute);
             }
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
             catch (UriFormatException ex)
             {
                 throw new ArgumentException(ex.Message, name, ex);
             }
-#else
-            catch (Exception ex)
-            {
-                throw new ArgumentException(ex.Message, name, ex);
-            }
-#endif
         }
     }
 }

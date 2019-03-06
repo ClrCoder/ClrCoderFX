@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1
 namespace ClrCoder.IO
 {
     using System;
@@ -14,10 +13,8 @@ namespace ClrCoder.IO
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using Mono.Unix;
     using Mono.Unix.Native;
-#endif
 
     using Validation;
 
@@ -169,7 +166,6 @@ namespace ClrCoder.IO
             }
         }
 
-#if NETSTANDARD2_0
         private void VerifyUnixSuccess(int result)
         {
             if (result == -1)
@@ -177,8 +173,5 @@ namespace ClrCoder.IO
                 throw new UnixIOException();
             }
         }
-
-#endif
     }
 }
-#endif

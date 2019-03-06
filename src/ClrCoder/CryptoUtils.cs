@@ -5,7 +5,6 @@
 
 namespace ClrCoder
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Security.Cryptography;
 
@@ -70,7 +69,7 @@ namespace ClrCoder
         /// <param name="str">The string to calculate hash.</param>
         /// <returns>MD5 hash encoded in the base 64.</returns>
         [PublicAPI]
-        public static string Md5HashBase64([CanBeNull]this string str)
+        public static string Md5HashBase64([CanBeNull] this string str)
         {
             if (str == null)
             {
@@ -120,5 +119,4 @@ namespace ClrCoder
             public MD5 Md5 { get; private set; }
         }
     }
-#endif
 }

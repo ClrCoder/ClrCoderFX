@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
 namespace ClrCoder.Threading
 {
     using System.Collections.Generic;
@@ -80,5 +79,3 @@ namespace ClrCoder.Threading
         }
     }
 }
-
-#endif

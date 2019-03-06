@@ -43,8 +43,6 @@ namespace ClrCoder.Threading.Channels
         {
         }
 
-#if NETSTANDARD2_0
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetWriterBecomesUnusableExceptionException"/> class with serialization
         /// data.
@@ -61,7 +59,5 @@ namespace ClrCoder.Threading.Channels
             : base(info, context)
         {
         }
-
-#endif
     }
 }

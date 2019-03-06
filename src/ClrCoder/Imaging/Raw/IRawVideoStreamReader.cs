@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1 && !NETSTANDARD1_3
 namespace ClrCoder.Imaging.Raw
 {
     using System.Threading;
@@ -28,5 +27,3 @@ namespace ClrCoder.Imaging.Raw
         Instant? FirstFrameInstant { get; }
     }
 }
-
-#endif

@@ -46,7 +46,6 @@ namespace ClrCoder.IO
         /// <inheritdoc/>
         public async Task ReadFromMemory(Func<IntPtr, long, Task> readProc)
         {
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1
             if (Stream is MemoryStream memoryStream)
             {
                 // Do nothing.
@@ -88,10 +87,6 @@ namespace ClrCoder.IO
             {
                 throw new NotImplementedException("Fallback to memory copy is not implemented yet.");
             }
-
-#else
-            throw new NotSupportedException();
-#endif
         }
 
         /// <inheritdoc/>

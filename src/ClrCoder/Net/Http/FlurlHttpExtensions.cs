@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Net.Http
 {
-#if NETSTANDARD2_0
     using System;
     using System.Linq;
     using System.Net;
@@ -455,6 +454,4 @@ namespace ClrCoder.Net.Http
             }
         }
     }
-
-#endif
 }

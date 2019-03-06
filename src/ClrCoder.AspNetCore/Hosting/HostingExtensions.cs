@@ -7,7 +7,6 @@ namespace ClrCoder.AspNetCore.Hosting
 {
     using JetBrains.Annotations;
 
-#if NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Buffers;
     using System.Collections.Generic;
@@ -31,16 +30,12 @@ namespace ClrCoder.AspNetCore.Hosting
 
     using Newtonsoft.Json;
 
-#endif
-
     /// <summary>
     /// Extensions related to Asp.Net Core hosting.
     /// </summary>
     [PublicAPI]
     public static class HostingExtensions
     {
-#if NETSTANDARD1_6 || NETSTANDARD2_0
-
         [UsedImplicitly]
         private class CustomSerializerSettingsSetup : IConfigureOptions<MvcOptions>
         {
@@ -232,6 +227,5 @@ namespace ClrCoder.AspNetCore.Hosting
                 return _allowedControllers.Contains(typeInfo);
             }
         }
-#endif
     }
 }

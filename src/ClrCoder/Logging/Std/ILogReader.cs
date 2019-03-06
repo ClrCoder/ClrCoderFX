@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Logging.Std
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -16,5 +15,4 @@ namespace ClrCoder.Logging.Std
     {
         ValueTask<IReadOnlyList<LogEntry>> GetLogs(Interval<Instant> interval);
     }
-#endif
 }

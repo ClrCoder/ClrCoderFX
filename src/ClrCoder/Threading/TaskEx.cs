@@ -53,11 +53,7 @@ namespace ClrCoder.Threading
         /// <returns>The task, completed with the provided exception.</returns>
         public static Task FromException(Exception ex)
         {
-#if  NETSTANDARD1_0 || NETSTANDARD1_1
-            return FromExceptionHelper(ex).EnsureStarted();
-#else
             return Task.FromException(ex);
-#endif
         }
 
         private static async Task FromExceptionHelper(Exception ex)

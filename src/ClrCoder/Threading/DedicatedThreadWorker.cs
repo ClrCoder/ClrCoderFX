@@ -5,7 +5,6 @@
 
 namespace ClrCoder.Threading
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Collections.Concurrent;
     using System.Diagnostics;
@@ -412,5 +411,4 @@ namespace ClrCoder.Threading
             }
         }
     }
-#endif
 }

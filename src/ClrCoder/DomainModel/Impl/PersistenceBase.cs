@@ -5,7 +5,6 @@
 
 namespace ClrCoder.DomainModel.Impl
 {
-#if NETSTANDARD1_3 || NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -234,5 +233,4 @@ namespace ClrCoder.DomainModel.Impl
             Critical.Assert(_isInitialized, "You forgot to perform initialization.");
         }
     }
-#endif
 }

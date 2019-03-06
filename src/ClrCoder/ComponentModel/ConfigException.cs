@@ -9,9 +9,7 @@ namespace ClrCoder.ComponentModel
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using System.Runtime.Serialization;
-#endif
 
     /// <summary>
     /// Library generated non processable exception.
@@ -47,7 +45,6 @@ namespace ClrCoder.ComponentModel
         {
         }
 
-#if NETSTANDARD2_0
 
 /// <summary>
 /// Initializes a new instance of the <see cref="ConfigException"/> class with serialization data.
@@ -64,7 +61,5 @@ namespace ClrCoder.ComponentModel
             : base(info, context)
         {
         }
-
-#endif
     }
 }

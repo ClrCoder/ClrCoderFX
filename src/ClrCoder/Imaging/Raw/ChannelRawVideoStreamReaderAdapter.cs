@@ -3,8 +3,6 @@
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1 && !NETSTANDARD1_3
-
 namespace ClrCoder.Imaging.Raw
 {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
@@ -81,5 +79,3 @@ namespace ClrCoder.Imaging.Raw
             InnerReader.WaitToReadAsync(cancellationToken);
     }
 }
-
-#endif

@@ -88,7 +88,6 @@ namespace ClrCoder.IO
 
         private async Task ReadOrWriteStreamInternal(Func<Stream, Task> readProc)
         {
-#if !NETSTANDARD1_0 && !NETSTANDARD1_1
             Stream stream;
             unsafe
             {
@@ -99,10 +98,6 @@ namespace ClrCoder.IO
             {
                 await readProc(stream);
             }
-
-#else
-            throw new NotSupportedException();
-#endif
         }
     }
 }

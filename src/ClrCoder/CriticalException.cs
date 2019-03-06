@@ -9,9 +9,7 @@ namespace ClrCoder
 
     using JetBrains.Annotations;
 
-#if NETSTANDARD2_0
     using System.Runtime.Serialization;
-#endif
 
     /// <summary>
     /// Library generated non processable exception.
@@ -47,8 +45,6 @@ namespace ClrCoder
         {
         }
 
-#if NETSTANDARD2_0
-
 /// <summary>
 /// Initializes a new instance of the <see cref="CriticalException"/> class with serialization data.
 /// </summary>
@@ -64,7 +60,5 @@ namespace ClrCoder
             : base(info, context)
         {
         }
-
-#endif
     }
 }

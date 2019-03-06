@@ -6,7 +6,6 @@
 namespace ClrCoder.AspNetCore.Hosting
 {
 #pragma warning disable 1998
-#if NETSTANDARD1_6 || NETSTANDARD2_0
     using System;
     using System.IO;
     using System.Net;
@@ -99,5 +98,4 @@ namespace ClrCoder.AspNetCore.Hosting
             return host;
         }
     }
-#endif
 }
