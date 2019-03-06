@@ -42,8 +42,8 @@ namespace ClrCoder.Tests.Threading
         public async Task SchedulingSimpleTest()
         {
             const int TasksCount = 5000;
-            var threadIds = new HashSetEx<int>();
-            var priorities = new HashSetEx<ThreadPriority>();
+            var threadIds = new HashSet<int>();
+            var priorities = new HashSet<ThreadPriority>();
             var taskWasNotContinuedInline = false;
             var tasks = new Task[TasksCount];
             var rnd = new Random(0);

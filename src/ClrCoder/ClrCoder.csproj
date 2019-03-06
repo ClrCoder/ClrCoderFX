@@ -10,7 +10,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClrCoder.Collections.Rich\ClrCoder.Collections.Rich.csproj" />
     <ProjectReference Include="..\ClrCoder.Threading.AsyncDisposable\ClrCoder.Threading.AsyncDisposable.csproj" />
   </ItemGroup>
 
@@ -85,7 +84,6 @@
     <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
     <PackageReference Include="System.Threading.Channels" Version="4.5.0-rc1" />
     <PackageReference Include="System.Memory" Version="4.5.0-rc1" />
-    <ProjectReference Include="..\ClrCoder.UniformPath\ClrCoder.UniformPath.csproj" />
   </ItemGroup>
 
   <ItemGroup>

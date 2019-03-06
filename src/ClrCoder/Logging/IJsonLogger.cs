@@ -29,7 +29,6 @@ namespace ClrCoder.Logging
         /// Json serializer source.
         /// </summary>
         [NotNull]
-        [ReferenceImmutable]
         IJsonSerializerSource SerializerSource { get; }
 
         /// <summary>

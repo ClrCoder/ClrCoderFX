@@ -14,7 +14,6 @@ namespace ClrCoder
     /// <summary>
     /// Base serializer source with caching.
     /// </summary>
-    [Immutable]
     public class JsonSerializerSource : IJsonSerializerSource
     {
         private readonly Func<JsonSerializerSettings> _createSettingsFunc;

@@ -241,7 +241,7 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
             IIxVisibilityFilterConfig IIxProviderNodeConfig.ExportToParentFilter =>
                 new IxStdVisibilityFilterConfig
                     {
-                        WhiteList = new HashSetEx<IxIdentifier>
+                        WhiteList = new HashSet<IxIdentifier>
                                         {
                                             new IxIdentifier(typeof(IDummyConfigUser)),
                                         }

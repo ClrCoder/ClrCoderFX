@@ -36,15 +36,15 @@ namespace ClrCoder.IO
         /// Initializes a new instance of the <see cref="FileBinaryResource"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public FileBinaryResource(UPath filePath)
+        public FileBinaryResource(string filePath)
         {
             VxArgs.NotNull(filePath, nameof(filePath));
 
-            _fullFilePath = filePath.Normalize().ToPlatformPath();
+            _fullFilePath = Path.GetFullPath(filePath);
 
-            if (!filePath.FileExists())
+            if (File.Exists(_fullFilePath))
             {
-                string platformFilePath = filePath.ToPlatformPath();
+                string platformFilePath = _fullFilePath;
                 throw new FileNotFoundException($"{platformFilePath} does not exists.", platformFilePath);
             }
         }

@@ -152,40 +152,6 @@ namespace ClrCoder.Validation
         /// <typeparam name="T">Type of <c>collection</c> item.</typeparam>
         /// <param name="collection">Collection to validate.</param>
         /// <param name="name">Name of an argument.</param>
-        [Pure]
-        public static void NotEmpty<T>(ICollectionEx<T> collection, string name)
-        {
-            if (collection == null)
-            {
-                throw new ArgumentNullException(name);
-            }
-
-            if (collection.Count == 0)
-            {
-                throw new ArgumentException($"{name} collection should not be empty.", name);
-            }
-
-#if DEBUG
-            if (!typeof(T).GetTypeInfo().IsValueType)
-            {
-                foreach (T item in collection)
-                {
-                    if (item == null)
-                    {
-                        throw new ArgumentException($"{name} collection element is null.", name);
-                    }
-                }
-            }
-
-#endif
-        }
-
-        /// <summary>
-        /// Validates that <c>collection</c> is not empty. Also validates items not <c>null</c> in debug mode.
-        /// </summary>
-        /// <typeparam name="T">Type of <c>collection</c> item.</typeparam>
-        /// <param name="collection">Collection to validate.</param>
-        /// <param name="name">Name of an argument.</param>
         public static void NotEmptyReadOnly<T>(IReadOnlyCollection<T> collection, string name)
         {
             if (collection == null)

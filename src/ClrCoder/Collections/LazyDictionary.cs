@@ -31,7 +31,7 @@ namespace ClrCoder.Collections
         [CanBeNull]
         private static readonly Exception DefaultValueFactoryCreateException;
 
-        private readonly Dictionary<TKey, TValue> _dictionary = new DictionaryEx<TKey, TValue>();
+        private readonly Dictionary<TKey, TValue> _dictionary = new Dictionary<TKey, TValue>();
 
         private readonly Func<TValue> _valueFactory;
 
