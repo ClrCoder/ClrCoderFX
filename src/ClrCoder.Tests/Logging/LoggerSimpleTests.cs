@@ -1,4 +1,4 @@
-﻿// <copyright file="LoggerSimpleTests.cs" company="ClrCoder project">
+// <copyright file="LoggerSimpleTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -31,18 +31,18 @@ namespace ClrCoder.Tests.Logging
         public void LogEntrySerializationTest()
         {
             var tstLogEntry = new LogEntry
-                                  {
-                                      Message = "Msg",
-                                      Details = "Some details.",
-                                      CallerInfo = new CallerInfo("File.cs", "Namespace.Class.Method", 15),
-                                      Severity = LogSeverity.Critical,
-                                      Instant = Instant.FromUtc(2017, 1, 1, 2, 3),
-                                      DotNetType = "SomeType",
-                                      ExtensionData = new Dictionary<string, object>
-                                                          {
-                                                              { "Prop", "Str value" }
-                                                          }
-                                  };
+                                {
+                                    Message = "Msg",
+                                    Details = "Some details.",
+                                    CallerInfo = new CallerInfo("File.cs", "Namespace.Class.Method", 15),
+                                    Severity = LogSeverity.Critical,
+                                    Instant = Instant.FromUtc(2017, 1, 1, 2, 3),
+                                    DotNetType = "SomeType",
+                                    ExtensionData = new Dictionary<string, object>
+                                                        {
+                                                            { "Prop", "Str value" }
+                                                        }
+                                };
             string serializedLogEntry = JsonConvert.SerializeObject(
                 tstLogEntry,
                 Formatting.Indented,

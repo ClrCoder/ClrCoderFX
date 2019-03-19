@@ -1,4 +1,4 @@
-﻿// <copyright file="RawPixelFormat.cs" company="ClrCoder project">
+// <copyright file="RawPixelFormat.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -18,88 +18,88 @@ namespace ClrCoder.Imaging.Raw
         static RawPixelFormat()
         {
             Registry = new Dictionary<RawPixelFormatCode, RawPixelFormat>
-                           {
-                               [RawPixelFormatCode.Gray8] = new RawPixelFormat(
-                                   RawPixelFormatCode.Gray8,
-                                   1,
-                                   new[]
-                                       {
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Gray,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               0,
-                                               8)
-                                       }),
+                            {
+                                [RawPixelFormatCode.Gray8] = new RawPixelFormat(
+                                    RawPixelFormatCode.Gray8,
+                                    1,
+                                    new[]
+                                        {
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Gray,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                0,
+                                                8)
+                                        }),
 
-                               [RawPixelFormatCode.RGB8] = new RawPixelFormat(
-                                   RawPixelFormatCode.RGB8,
-                                   3,
-                                   new[]
-                                       {
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Red,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               0,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Green,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               8,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Blue,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               16,
-                                               8),
-                                       }),
-                               [RawPixelFormatCode.RGBX8] = new RawPixelFormat(
-                                   RawPixelFormatCode.RGBX8,
-                                   4,
-                                   new[]
-                                       {
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Red,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               0,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Green,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               8,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Blue,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               16,
-                                               8),
-                                       }),
-                               [RawPixelFormatCode.RGBA8] = new RawPixelFormat(
-                                   RawPixelFormatCode.RGBA8,
-                                   4,
-                                   new[]
-                                       {
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Red,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               0,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Green,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               8,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Blue,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               16,
-                                               8),
-                                           new RawPixelChannelFormat(
-                                               RawPixelChannelType.Alpha,
-                                               RawPixelChannelValuesFormat.LinearInt,
-                                               24,
-                                               8),
-                                       }),
-                           };
+                                [RawPixelFormatCode.RGB8] = new RawPixelFormat(
+                                    RawPixelFormatCode.RGB8,
+                                    3,
+                                    new[]
+                                        {
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Red,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                0,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Green,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                8,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Blue,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                16,
+                                                8),
+                                        }),
+                                [RawPixelFormatCode.RGBX8] = new RawPixelFormat(
+                                    RawPixelFormatCode.RGBX8,
+                                    4,
+                                    new[]
+                                        {
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Red,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                0,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Green,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                8,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Blue,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                16,
+                                                8),
+                                        }),
+                                [RawPixelFormatCode.RGBA8] = new RawPixelFormat(
+                                    RawPixelFormatCode.RGBA8,
+                                    4,
+                                    new[]
+                                        {
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Red,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                0,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Green,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                8,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Blue,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                16,
+                                                8),
+                                            new RawPixelChannelFormat(
+                                                RawPixelChannelType.Alpha,
+                                                RawPixelChannelValuesFormat.LinearInt,
+                                                24,
+                                                8),
+                                        }),
+                            };
         }
 
         protected RawPixelFormat(

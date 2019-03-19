@@ -1,4 +1,4 @@
-﻿// <copyright file="IxHost.cs" company="ClrCoder project">
+// <copyright file="IxHost.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -130,12 +130,12 @@ namespace ClrCoder.ComponentModel.IndirectX
                     {
                         importRegistrationsFromChildren(child);
 
-                        // Applying export to parent filter 
+                        // Applying export to parent filter
                         // while Blocking from exporting resolve pathes with zero-length.
                         foreach (KeyValuePair<IxIdentifier, IxResolvePath> kvp in
                             child.VisibleNodes.Where(
                                 x => child.ExportToParentFilter(x.Key)
-                                     && x.Value.Path.Any()))
+                                    && x.Value.Path.Any()))
                         {
                             if (node.VisibleNodes.ContainsKey(kvp.Key))
                             {
@@ -193,10 +193,10 @@ namespace ClrCoder.ComponentModel.IndirectX
             _rootScopeInstance = _rootScope.GetRootInstance();
             var resolveContext = new IxResolveContext(_rootScopeInstance, null, new Dictionary<IxIdentifier, object>());
             using (IIxInstanceLock rootResolverLock = await Resolve(
-                                                          _rootScopeInstance,
-                                                          new IxIdentifier(typeof(IIxResolver)),
-                                                          resolveContext,
-                                                          null))
+                                                        _rootScopeInstance,
+                                                        new IxIdentifier(typeof(IIxResolver)),
+                                                        resolveContext,
+                                                        null))
             {
                 var resolver = (IxResolver)rootResolverLock.Target.Object;
                 Critical.CheckedAssert(

@@ -1,4 +1,4 @@
-﻿// <copyright file="ActiveWorker.cs" company="ClrCoder project">
+// <copyright file="ActiveWorker.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -220,7 +220,7 @@ namespace ClrCoder.Threading
                     if ((workItem.Blockers.Count == 1) && workItem.Blockers.First().IsInitialBlocker)
                     {
                         var blocker = workItem.Blockers.First();
-                        
+
                         // Disposing last initial blocker.
                         workItem.Blockers.Remove(blocker);
                         _workBlockers.Remove(blocker);

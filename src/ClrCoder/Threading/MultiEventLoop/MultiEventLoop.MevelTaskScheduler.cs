@@ -1,4 +1,4 @@
-﻿// <copyright file="MultiEventLoop.MevelTaskScheduler.cs" company="ClrCoder project">
+// <copyright file="MultiEventLoop.MevelTaskScheduler.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -44,7 +44,7 @@ namespace ClrCoder.Threading
             {
                 var curEventLoop = _currentEventLoop;
                 if ((curEventLoop != null) && ((task.CreationOptions & TaskCreationOptions.PreferFairness)
-                                               == TaskCreationOptions.None))
+                                                == TaskCreationOptions.None))
                 {
                     curEventLoop.EnqueueUnsafe(task);
                 }
@@ -66,7 +66,7 @@ namespace ClrCoder.Threading
             protected override bool TryExecuteTaskInline([NotNull] Task task, bool taskWasPreviouslyQueued)
             {
                 if ((_currentEventLoopId != 0) && ((task.CreationOptions & TaskCreationOptions.PreferFairness)
-                                                   == TaskCreationOptions.None))
+                                                    == TaskCreationOptions.None))
                 {
                     return TryExecuteTask(task);
                 }

@@ -63,7 +63,7 @@ namespace ClrCoder.Threading
                 // We needs to cache this state.
                 bool isCompleted = _awaiter.IsCompleted;
 
-                // And return the same value to async method state machine 
+                // And return the same value to async method state machine
                 // and to detect result handler.
                 _handleDetectionResult(isCompleted);
                 return isCompleted;

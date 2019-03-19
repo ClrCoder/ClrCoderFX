@@ -1,4 +1,4 @@
-﻿// <copyright file="IxScopeTests.cs" company="ClrCoder project">
+// <copyright file="IxScopeTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -36,10 +36,10 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task DerivedScopeTest()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes.Add(new DummyScopeConfig()))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes.Add(new DummyScopeConfig()))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -58,8 +58,8 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Registered_scope_should_be_resolved_with_the_same_instance()
         {
             await (await new IxHostBuilder()
-                       .Configure(n => n.AddScope("test"))
-                       .Build())
+                        .Configure(n => n.AddScope("test"))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -86,8 +86,8 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task RegisteredScopeShouldBeResolved()
         {
             await (await new IxHostBuilder()
-                       .Configure(n => n.AddScope("test"))
-                       .Build())
+                        .Configure(n => n.AddScope("test"))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -106,8 +106,8 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task RootScopeShouldBeResolved()
         {
             await (await new IxHostBuilder()
-                       .Configure()
-                       .Build())
+                        .Configure()
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -128,18 +128,18 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
             var instance = new DummyObject();
 
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes.AddScope(
-                                   "private",
-                                   nodes: nodes =>
-                                       {
-                                           nodes.Add<DummyObject>(
-                                               instanceBuilder:
-                                               new IxExistingInstanceFactoryConfig<DummyObject>(instance),
-                                               disposeHandler: obj => Task.CompletedTask);
-                                       }))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes.AddScope(
+                                    "private",
+                                    nodes: nodes =>
+                                        {
+                                            nodes.Add<DummyObject>(
+                                                instanceBuilder:
+                                                new IxExistingInstanceFactoryConfig<DummyObject>(instance),
+                                                disposeHandler: obj => Task.CompletedTask);
+                                        }))
+                        .Build())
                 .AsyncUsing(
                     host =>
                         {
@@ -178,18 +178,18 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
             var instance = new DummyObject();
 
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes.AddScope(
-                                   exportToParentFilter: new IxStdVisibilityFilterConfig(),
-                                   nodes: nodes =>
-                                       {
-                                           nodes.Add<DummyObject>(
-                                               instanceBuilder:
-                                               new IxExistingInstanceFactoryConfig<DummyObject>(instance),
-                                               disposeHandler: obj => Task.CompletedTask);
-                                       }))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes.AddScope(
+                                    exportToParentFilter: new IxStdVisibilityFilterConfig(),
+                                    nodes: nodes =>
+                                        {
+                                            nodes.Add<DummyObject>(
+                                                instanceBuilder:
+                                                new IxExistingInstanceFactoryConfig<DummyObject>(instance),
+                                                disposeHandler: obj => Task.CompletedTask);
+                                        }))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {

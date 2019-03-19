@@ -1,4 +1,4 @@
-﻿// <copyright file="BclProductivityExtensions.cs" company="ClrCoder project">
+// <copyright file="BclProductivityExtensions.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -208,14 +208,14 @@ namespace ClrCoder
             }
 
 #endif
-            if (ex is StackOverflowException 
+            if (ex is StackOverflowException
                 || ex is ThreadAbortException
                 || ex is AppDomainUnloadedException
                 || ex is CannotUnloadAppDomainException)
             {
                 return false;
             }
-            
+
             return true;
         }
 
@@ -519,13 +519,13 @@ namespace ClrCoder
         {
             decimal result;
             return (str != null)
-                   && decimal.TryParse(
-                       str.Replace(",", "."),
-                       NumberStyles.Any,
-                       CultureInfo.InvariantCulture,
-                       out result)
-                       ? (decimal?)result
-                       : null;
+                    && decimal.TryParse(
+                        str.Replace(",", "."),
+                        NumberStyles.Any,
+                        CultureInfo.InvariantCulture,
+                        out result)
+                        ? (decimal?)result
+                        : null;
         }
 
         /// <summary>

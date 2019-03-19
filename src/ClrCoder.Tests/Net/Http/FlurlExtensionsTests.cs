@@ -1,4 +1,4 @@
-﻿// <copyright file="FlurlExtensionsTests.cs" company="ClrCoder project">
+// <copyright file="FlurlExtensionsTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -93,20 +93,20 @@ namespace ClrCoder.Tests.Net.Http
         public async Task SendJsonAsyncWithDumpTest()
         {
             var data = new MethodInfoDto
-                           {
-                               Name = "name",
-                               TypeFullName = "fullname"
-                           };
+                            {
+                                Name = "name",
+                                TypeFullName = "fullname"
+                            };
 
             IJsonLogger logger = new NUnitJsonLogger(SyncHandler.Instance);
 
             using (HostUtils.HostController<TestFlurlController>("http://localhost:5062"))
             {
                 string response = await new Url("http://localhost:5062")
-                                      .AppendPathSegment("Flurl")
-                                      .WithDump(logger)
-                                      .PostJsonAsync(data)
-                                      .ReceiveString();
+                                    .AppendPathSegment("Flurl")
+                                    .WithDump(logger)
+                                    .PostJsonAsync(data)
+                                    .ReceiveString();
 
                 var responseData = JsonConvert.DeserializeObject<MethodInfoDto>(response);
                 responseData.Should().NotBeNull();

@@ -1,4 +1,4 @@
-﻿// <copyright file="MethodInfoDto.cs" company="ClrCoder project">
+// <copyright file="MethodInfoDto.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -41,10 +41,10 @@ namespace ClrCoder.Runtime.Serialization
 
             // ReSharper disable once ConstantConditionalAccessQualifier
             return new MethodInfoDto
-                       {
-                           Name = methodInfo.Name,
-                           TypeFullName = methodInfo.DeclaringType?.FullName
-                       };
+                        {
+                            Name = methodInfo.Name,
+                            TypeFullName = methodInfo.DeclaringType?.FullName
+                        };
         }
     }
 }

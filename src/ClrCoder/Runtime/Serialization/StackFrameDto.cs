@@ -1,4 +1,4 @@
-﻿// <copyright file="StackFrameDto.cs" company="ClrCoder project">
+// <copyright file="StackFrameDto.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -66,12 +66,12 @@ namespace ClrCoder.Runtime.Serialization
         public static StackFrameDto FromStackFrame(StackFrame stackFrame)
         {
             var result = new StackFrameDto
-                             {
-                                 FileColumnNumber = stackFrame.GetFileColumnNumber(),
-                                 FileLineNumber = stackFrame.GetFileLineNumber(),
-                                 FileName = stackFrame.GetFileName(),
-                                 ILOffset = stackFrame.GetILOffset(),
-                             };
+                            {
+                                FileColumnNumber = stackFrame.GetFileColumnNumber(),
+                                FileLineNumber = stackFrame.GetFileLineNumber(),
+                                FileName = stackFrame.GetFileName(),
+                                ILOffset = stackFrame.GetILOffset(),
+                            };
             MethodBase method = stackFrame.GetMethod();
 
             if (method != null)

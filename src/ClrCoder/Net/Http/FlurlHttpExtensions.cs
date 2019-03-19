@@ -1,4 +1,4 @@
-﻿// <copyright file="FlurlHttpExtensions.cs" company="ClrCoder project">
+// <copyright file="FlurlHttpExtensions.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -101,9 +101,9 @@ namespace ClrCoder.Net.Http
 
             // Linux
             return (flurlException.Call.Response == null)
-                   && (flurlException.InnerException?.GetType() == typeof(HttpRequestException))
-                   && (flurlException.InnerException?.InnerException?.Message != null)
-                   && flurlException.InnerException.InnerException.Message.Contains("resolve host name");
+                    && (flurlException.InnerException?.GetType() == typeof(HttpRequestException))
+                    && (flurlException.InnerException?.InnerException?.Message != null)
+                    && flurlException.InnerException.InnerException.Message.Contains("resolve host name");
         }
 
         /// <summary>

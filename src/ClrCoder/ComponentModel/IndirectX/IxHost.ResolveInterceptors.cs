@@ -1,4 +1,4 @@
-﻿// <copyright file="IxHost.ResolveInterceptors.cs" company="ClrCoder project">
+// <copyright file="IxHost.ResolveInterceptors.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -137,10 +137,10 @@ namespace ClrCoder.ComponentModel.IndirectX
                     if (index < resolvePath.Path.Count - 1)
                     {
                         using (IIxInstanceLock instanceLock = await Resolve(
-                                                                  parentInstance,
-                                                                  resolvePath.Path[index].Identifier,
-                                                                  context,
-                                                                  frame))
+                                                                parentInstance,
+                                                                resolvePath.Path[index].Identifier,
+                                                                context,
+                                                                frame))
                         {
                             return await resolvePathElements(instanceLock.Target, index + 1);
                         }
@@ -249,18 +249,18 @@ namespace ClrCoder.ComponentModel.IndirectX
                     }
 
                     return await resolvePath.Target.ScopeBinder(
-                               originInstance,
-                               resolvePath,
-                               context,
-                               frame,
-                               async (parentInstance, provider, c) =>
-                                   {
-                                       // While we have temporary lock, we needs to put permanent lock.
-                                       IIxInstanceLock resolvedInstanceTempLock =
-                                           await provider.GetInstance(parentInstance, identifier, c, frame);
+                                originInstance,
+                                resolvePath,
+                                context,
+                                frame,
+                                async (parentInstance, provider, c) =>
+                                    {
+                                        // While we have temporary lock, we needs to put permanent lock.
+                                        IIxInstanceLock resolvedInstanceTempLock =
+                                            await provider.GetInstance(parentInstance, identifier, c, frame);
 
-                                       return resolvedInstanceTempLock;
-                                   });
+                                        return resolvedInstanceTempLock;
+                                    });
                 };
         }
 
@@ -277,18 +277,18 @@ namespace ClrCoder.ComponentModel.IndirectX
                         if (originInstance.ProviderNode.ParentReplacementNodes.TryGetValue(identifier, out resolvePath))
                         {
                             return await resolvePath.Target.ScopeBinder(
-                                       originInstance,
-                                       resolvePath,
-                                       context,
-                                       frame,
-                                       async (parentInstance, provider, c) =>
-                                           {
-                                               // While we have temporary lock, we needs to put permanent lock.
-                                               IIxInstanceLock resolvedInstanceTempLock =
-                                                   await provider.GetInstance(parentInstance, identifier, c, frame);
+                                        originInstance,
+                                        resolvePath,
+                                        context,
+                                        frame,
+                                        async (parentInstance, provider, c) =>
+                                            {
+                                                // While we have temporary lock, we needs to put permanent lock.
+                                                IIxInstanceLock resolvedInstanceTempLock =
+                                                    await provider.GetInstance(parentInstance, identifier, c, frame);
 
-                                               return resolvedInstanceTempLock;
-                                           });
+                                                return resolvedInstanceTempLock;
+                                            });
                         }
                     }
 

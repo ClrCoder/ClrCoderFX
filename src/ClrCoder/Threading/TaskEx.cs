@@ -1,4 +1,4 @@
-﻿// <copyright file="TaskEx.cs" company="ClrCoder project">
+// <copyright file="TaskEx.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -47,7 +47,7 @@ namespace ClrCoder.Threading
         public static Task NeverCompletingTask { get; }
 
         /// <summary>
-        /// The Task.FromException polyfill for the netstandard 1.0 
+        /// The Task.FromException polyfill for the netstandard 1.0
         /// </summary>
         /// <param name="ex">The exception to wrap to the task.</param>
         /// <returns>The task, completed with the provided exception.</returns>

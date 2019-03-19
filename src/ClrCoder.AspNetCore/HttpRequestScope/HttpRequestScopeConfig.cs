@@ -1,4 +1,4 @@
-﻿// <copyright file="HttpRequestScopeConfig.cs" company="ClrCoder project">
+// <copyright file="HttpRequestScopeConfig.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,8 +12,8 @@ namespace ClrCoder.AspNetCore
     using ComponentModel.IndirectX;
 
     public class HttpRequestScopeConfig<TRequestScope> : IxStdProviderConfig,
-                                                         IIxStdProviderConfig,
-                                                         IIxBasicIdentificationConfig
+                                                        IIxStdProviderConfig,
+                                                        IIxBasicIdentificationConfig
         where TRequestScope : HttpRequestScope
     {
         Type IIxBasicIdentificationConfig.ContractType => typeof(HttpRequestScope);

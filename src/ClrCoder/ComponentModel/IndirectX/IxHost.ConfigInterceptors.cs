@@ -1,4 +1,4 @@
-﻿// <copyright file="IxHost.ConfigInterceptors.cs" company="ClrCoder project">
+// <copyright file="IxHost.ConfigInterceptors.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -29,7 +29,7 @@ namespace ClrCoder.ComponentModel.IndirectX
         public InterceptableDelegate<InstanceFactoryBuilderDelegate> InstanceFactoryBuilder { get; } =
             new InterceptableDelegate<InstanceFactoryBuilderDelegate>(
                 config => throw new NotSupportedException(
-                              $"Raw instance factory with type {config.GetType()} is not supported."));
+                            $"Raw instance factory with type {config.GetType()} is not supported."));
 
         /// <summary>
         /// Creates dependency node from <paramref name="config"/>.
@@ -47,7 +47,7 @@ namespace ClrCoder.ComponentModel.IndirectX
         public InterceptableDelegate<VisibilityFilterBuilderDelegate> VisibilityFilterBuilder { get; } =
             new InterceptableDelegate<VisibilityFilterBuilderDelegate>(
                 config => throw new NotSupportedException(
-                              $"Visibility filter with type {config.GetType()} is not supported."));
+                            $"Visibility filter with type {config.GetType()} is not supported."));
 
         /// <summary>
         /// Interceptors chain that builds node provider.
@@ -62,7 +62,7 @@ namespace ClrCoder.ComponentModel.IndirectX
         public InterceptableDelegate<ScopeBinderBuilderDelegate> ScopeBinderBuilder { get; } =
             new InterceptableDelegate<ScopeBinderBuilderDelegate>(
                 config => throw new NotSupportedException(
-                              $"Scope binder with type {config.GetType()} is not supported."));
+                            $"Scope binder with type {config.GetType()} is not supported."));
 
         /// <summary>
         /// Interceptors chain that builds dispose handler.
@@ -92,16 +92,16 @@ namespace ClrCoder.ComponentModel.IndirectX
                     if (cfg == null || nodeConfig.GetType() != typeof(IxStdProviderConfig))
                     {
                         cfg = new IxStdProviderConfig
-                                  {
-                                      ScopeBinding = cfgContract.ScopeBinding,
-                                      Identifier = cfgContract.Identifier,
-                                      InstanceBuilder = cfgContract.InstanceBuilder,
-                                      Multiplicity = cfgContract.Multiplicity,
-                                      DisposeHandler = cfgContract.DisposeHandler,
-                                      ExportFilter = cfgContract.ExportFilter,
-                                      ExportToParentFilter = cfgContract.ExportToParentFilter,
-                                      ImportFilter = cfgContract.ImportFilter
-                                  };
+                                {
+                                    ScopeBinding = cfgContract.ScopeBinding,
+                                    Identifier = cfgContract.Identifier,
+                                    InstanceBuilder = cfgContract.InstanceBuilder,
+                                    Multiplicity = cfgContract.Multiplicity,
+                                    DisposeHandler = cfgContract.DisposeHandler,
+                                    ExportFilter = cfgContract.ExportFilter,
+                                    ExportToParentFilter = cfgContract.ExportToParentFilter,
+                                    ImportFilter = cfgContract.ImportFilter
+                                };
                     }
 
                     // TODO: Write test on this feature.
@@ -121,11 +121,11 @@ namespace ClrCoder.ComponentModel.IndirectX
                     if (nodeConfigType.GetCustomAttribute<ProvideConfigAttribute>() != null)
                     {
                         configProviderConfig = new IxStdProviderConfig
-                                                   {
-                                                       Identifier = new IxIdentifier(nodeConfig.GetType()),
-                                                       InstanceBuilder =
-                                                           new IxExistingInstanceFactoryConfig<object>(nodeConfig),
-                                                   };
+                                                    {
+                                                        Identifier = new IxIdentifier(nodeConfig.GetType()),
+                                                        InstanceBuilder =
+                                                            new IxExistingInstanceFactoryConfig<object>(nodeConfig),
+                                                    };
                     }
 
                     if (cfg.Multiplicity == null)
@@ -149,9 +149,9 @@ namespace ClrCoder.ComponentModel.IndirectX
                     if (cfg.ExportToParentFilter == null)
                     {
                         cfg.ExportToParentFilter = new IxStdVisibilityFilterConfig
-                                                       {
-                                                           WhiteList = new HashSet<IxIdentifier>()
-                                                       };
+                                                        {
+                                                            WhiteList = new HashSet<IxIdentifier>()
+                                                        };
                     }
 
                     // Binding to registration by default.
@@ -215,13 +215,13 @@ namespace ClrCoder.ComponentModel.IndirectX
                         || cfg.GetType() != typeof(IxScopeConfig) && cfg.GetType() != typeof(IxHostConfig))
                     {
                         cfg = new IxScopeConfig
-                                  {
-                                      Identifier = cfgContract.Identifier,
-                                      ExportFilter = cfgContract.ExportFilter,
-                                      ExportToParentFilter = cfgContract.ExportToParentFilter,
-                                      ImportFilter = cfgContract.ImportFilter,
-                                      IsInstanceless = cfgContract.IsInstanceless,
-                                  };
+                                {
+                                    Identifier = cfgContract.Identifier,
+                                    ExportFilter = cfgContract.ExportFilter,
+                                    ExportToParentFilter = cfgContract.ExportToParentFilter,
+                                    ImportFilter = cfgContract.ImportFilter,
+                                    IsInstanceless = cfgContract.IsInstanceless,
+                                };
 
                         foreach (IIxProviderNodeConfig node in cfgContract.Nodes)
                         {
@@ -242,9 +242,9 @@ namespace ClrCoder.ComponentModel.IndirectX
                     if (cfg.ExportToParentFilter == null)
                     {
                         cfg.ExportToParentFilter = new IxStdVisibilityFilterConfig
-                                                       {
-                                                           WhiteList = new HashSet<IxIdentifier>()
-                                                       };
+                                                        {
+                                                            WhiteList = new HashSet<IxIdentifier>()
+                                                        };
                     }
 
                     if (cfg.ImportFilter == null)

@@ -1,4 +1,4 @@
-﻿// <copyright file="IxThreadingTests.cs" company="ClrCoder project">
+// <copyright file="IxThreadingTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -31,14 +31,14 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
             var instance = new DummyObject();
 
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes.Add<DummyObject>(
-                                   instanceBuilder:
-                                   new IxExistingInstanceFactoryConfig<DummyObject>(
-                                       instance),
-                                   disposeHandler: obj => Task.CompletedTask))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes.Add<DummyObject>(
+                                    instanceBuilder:
+                                    new IxExistingInstanceFactoryConfig<DummyObject>(
+                                        instance),
+                                    disposeHandler: obj => Task.CompletedTask))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {

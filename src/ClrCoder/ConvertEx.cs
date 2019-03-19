@@ -1,4 +1,4 @@
-﻿// <copyright file="ConvertEx.cs" company="ClrCoder project">
+// <copyright file="ConvertEx.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -22,11 +22,11 @@ namespace ClrCoder
         static ConvertEx()
         {
             DefaultTraceSettings = new JsonSerializerSettings
-                                       {
-                                           PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                                           Formatting = Formatting.Indented,
-                                           ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                                       };
+                                        {
+                                            PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                                            Formatting = Formatting.Indented,
+                                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                                        };
             DefaultTraceSettings.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
             DefaultTraceSettings.Converters.Add(new StringEnumConverter { CamelCaseText = false });
         }

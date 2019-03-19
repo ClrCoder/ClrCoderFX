@@ -1,4 +1,4 @@
-﻿// <copyright file="ChannelRawVideoStreamReaderAdapter.cs" company="ClrCoder project">
+// <copyright file="ChannelRawVideoStreamReaderAdapter.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -20,7 +20,7 @@ namespace ClrCoder.Imaging.Raw
     /// The wrapper over BCL channel reader with video frames.
     /// </summary>
     public class ChannelRawVideoStreamReaderAdapter : ChannelReaderWithoutBatchMode<IRawVideoFrame>,
-                                                      IRawVideoStreamReader
+                                                    IRawVideoStreamReader
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelRawVideoStreamReaderAdapter"/> class.

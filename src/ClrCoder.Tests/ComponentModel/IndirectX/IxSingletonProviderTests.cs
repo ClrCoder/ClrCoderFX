@@ -1,4 +1,4 @@
-﻿// <copyright file="IxSingletonProviderTests.cs" company="ClrCoder project">
+// <copyright file="IxSingletonProviderTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -30,25 +30,25 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task ResolveFromInstanceChildTest()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           n => n
-                               .Add<Dummy>(
-                                   instanceBuilder: new IxClassInstanceBuilderConfig<Dummy>(),
-                                   exportToParentFilter:
-                                   new IxStdVisibilityFilterConfig
-                                       {
-                                           WhiteList =
-                                               new HashSet<IxIdentifier>
-                                                   {
-                                                       new IxIdentifier(typeof(Dummy)),
-                                                       new IxIdentifier(typeof(DummyChild))
-                                                   }
-                                       },
-                                   nodes:
-                                   n1 => n1
-                                       .Add<DummyChild>(
-                                           instanceBuilder: new IxClassInstanceBuilderConfig<DummyChild>())))
-                       .Build())
+                        .Configure(
+                            n => n
+                                .Add<Dummy>(
+                                    instanceBuilder: new IxClassInstanceBuilderConfig<Dummy>(),
+                                    exportToParentFilter:
+                                    new IxStdVisibilityFilterConfig
+                                        {
+                                            WhiteList =
+                                                new HashSet<IxIdentifier>
+                                                    {
+                                                        new IxIdentifier(typeof(Dummy)),
+                                                        new IxIdentifier(typeof(DummyChild))
+                                                    }
+                                        },
+                                    nodes:
+                                    n1 => n1
+                                        .Add<DummyChild>(
+                                            instanceBuilder: new IxClassInstanceBuilderConfig<DummyChild>())))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {

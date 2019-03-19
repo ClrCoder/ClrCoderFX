@@ -1,4 +1,4 @@
-﻿// <copyright file="IxClassInstanceBuilderTests.cs" company="ClrCoder project">
+// <copyright file="IxClassInstanceBuilderTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -33,15 +33,15 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Simplest_dependency_should_be_resolved()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<SimplestDummy>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<SimplestDummy>())
-                                   .Add<WithSimplestDependencyDummy>(
-                                       instanceBuilder: new
-                                           IxClassInstanceBuilderConfig<WithSimplestDependencyDummy>()))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<SimplestDummy>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<SimplestDummy>())
+                                    .Add<WithSimplestDependencyDummy>(
+                                        instanceBuilder: new
+                                            IxClassInstanceBuilderConfig<WithSimplestDependencyDummy>()))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -63,13 +63,13 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Class_with_private_constructor_should_be_instantiated()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<PrivateConstructorDummy>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<PrivateConstructorDummy>(),
-                                       disposeHandler: obj => Task.CompletedTask))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<PrivateConstructorDummy>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<PrivateConstructorDummy>(),
+                                        disposeHandler: obj => Task.CompletedTask))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -131,12 +131,12 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Simplest_class_should_be_instantiated()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes.Add<SimplestDummy>(
-                                   instanceBuilder: new IxClassInstanceBuilderConfig<SimplestDummy>(),
-                                   disposeHandler: obj => Task.CompletedTask))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes.Add<SimplestDummy>(
+                                    instanceBuilder: new IxClassInstanceBuilderConfig<SimplestDummy>(),
+                                    disposeHandler: obj => Task.CompletedTask))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -156,12 +156,12 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Resolve_by_contract_should_be_success()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add(new DummyImplementationConfig())
-                                   .Add(new DummyContractConsumerConfig()))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add(new DummyImplementationConfig())
+                                    .Add(new DummyContractConsumerConfig()))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -224,8 +224,8 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
 
         [ProvideConfig]
         private class DummyImplementationConfig : IxStdProviderConfig,
-                                                  IIxStdProviderConfig,
-                                                  IIxBasicIdentificationConfig
+                                                IIxStdProviderConfig,
+                                                IIxBasicIdentificationConfig
         {
             Type IIxBasicIdentificationConfig.ContractType { get; } = typeof(IDummyContract);
 

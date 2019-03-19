@@ -1,4 +1,4 @@
-﻿// <copyright file="ThreadingExtensions.cs" company="ClrCoder project">
+// <copyright file="ThreadingExtensions.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -411,7 +411,7 @@ namespace ClrCoder.Threading
             {
                 if (!_cancellationToken.IsCancellationRequested)
                 {
-                    // GetResult can be called directly by GetAwaiter().GetResult(). 
+                    // GetResult can be called directly by GetAwaiter().GetResult().
                     // In this case we should use synchronous style wait.
                     _cancellationToken.WaitHandle.WaitOne();
                 }
@@ -995,12 +995,12 @@ namespace ClrCoder.Threading
                 for (int i = 0; i < tasksCount; i++)
                 {
                     tasks[i] = scheduler == null
-                                   ? Task.Factory.StartNew(WorkSequenceProc, cancellationToken).Unwrap()
-                                   : Task.Factory.StartNew(
-                                       WorkSequenceProc,
-                                       cancellationToken,
-                                       TaskCreationOptions.None,
-                                       scheduler).Unwrap();
+                                    ? Task.Factory.StartNew(WorkSequenceProc, cancellationToken).Unwrap()
+                                    : Task.Factory.StartNew(
+                                        WorkSequenceProc,
+                                        cancellationToken,
+                                        TaskCreationOptions.None,
+                                        scheduler).Unwrap();
                 }
 
                 return Task.WhenAll(tasks);

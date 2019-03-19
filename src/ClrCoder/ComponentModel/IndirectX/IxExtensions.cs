@@ -1,4 +1,4 @@
-﻿// <copyright file="IxExtensions.cs" company="ClrCoder project">
+// <copyright file="IxExtensions.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -73,17 +73,17 @@ namespace ClrCoder.ComponentModel.IndirectX
             Action<IIxBuilder<ICollection<IIxProviderNodeConfig>>> nodes = null)
         {
             var depNode = new IxStdProviderConfig
-                              {
-                                  InstanceBuilder = instanceBuilder,
-                                  Identifier = new IxIdentifier(typeof(TContract), name),
-                                  ScopeBinding = scopeBinding,
-                                  Multiplicity = multiplicity,
-                                  ImportFilter = importFilter,
-                                  ExportFilter = exportFilter,
-                                  ExportToParentFilter = exportToParentFilter,
-                                  AutoDisposeEnabled = autoDisposeEnabled,
-                                  DisposeHandler = disposeHandler
-                              };
+                            {
+                                InstanceBuilder = instanceBuilder,
+                                Identifier = new IxIdentifier(typeof(TContract), name),
+                                ScopeBinding = scopeBinding,
+                                Multiplicity = multiplicity,
+                                ImportFilter = importFilter,
+                                ExportFilter = exportFilter,
+                                ExportToParentFilter = exportToParentFilter,
+                                AutoDisposeEnabled = autoDisposeEnabled,
+                                DisposeHandler = disposeHandler
+                            };
 
             nodesBuilder.Config.Add(depNode);
 
@@ -123,12 +123,12 @@ namespace ClrCoder.ComponentModel.IndirectX
             }
 
             var scopeConfig = new IxScopeConfig
-                                  {
-                                      Identifier = new IxIdentifier(typeof(IxScope), name),
-                                      ExportToParentFilter = exportToParentFilter,
-                                      ExportFilter = exportFilter,
-                                      ImportFilter = importFilter
-                                  };
+                                {
+                                    Identifier = new IxIdentifier(typeof(IxScope), name),
+                                    ExportToParentFilter = exportToParentFilter,
+                                    ExportFilter = exportFilter,
+                                    ImportFilter = importFilter
+                                };
 
             nodesBuilder.Config.Add(scopeConfig);
             nodes?.Invoke(

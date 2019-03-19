@@ -1,4 +1,4 @@
-﻿// <copyright file="ConcurrentEnumerator.cs" company="ClrCoder project">
+// <copyright file="ConcurrentEnumerator.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -22,7 +22,7 @@ namespace ClrCoder.Threading
         private bool _enumerationFinished;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConcurrentEnumerator{T,TEnumerator}"/> struct. 
+        /// Initializes a new instance of the <see cref="ConcurrentEnumerator{T,TEnumerator}"/> struct.
         /// </summary>
         /// <param name="enumerator">The underlying non concurrent enumerator.</param>
         public ConcurrentEnumerator(TEnumerator enumerator)

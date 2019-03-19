@@ -1,4 +1,4 @@
-﻿// <copyright file="BatchModeBuffer.cs" company="ClrCoder project">
+// <copyright file="BatchModeBuffer.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -83,9 +83,9 @@ namespace ClrCoder.Threading.Channels
         private SliceEntry AllocateEmptyEntryAfter(LinkedListNode<SliceEntry> node)
         {
             var newEntry = new SliceEntry
-                               {
-                                   Id = _nextId++
-                               };
+                                {
+                                    Id = _nextId++
+                                };
             _sliceEntries.AddAfter(node, newEntry);
 
             return newEntry;
@@ -94,11 +94,11 @@ namespace ClrCoder.Threading.Channels
         private SliceEntry AllocateNewEntry()
         {
             var result = new SliceEntry
-                             {
-                                 Buffer = new T[_maxSliceLength],
-                                 Status = SliceEntryStatus.Data,
-                                 Id = _nextId++
-                             };
+                            {
+                                Buffer = new T[_maxSliceLength],
+                                Status = SliceEntryStatus.Data,
+                                Id = _nextId++
+                            };
 
             _idToSliceEntries.Add(result.Id, _sliceEntries.AddLast(result));
 

@@ -1,4 +1,4 @@
-﻿// <copyright file="RawImage.cs" company="ClrCoder project">
+// <copyright file="RawImage.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,7 +14,7 @@ namespace ClrCoder.Imaging.Raw
     public class RawImage
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RawImage"/> class. 
+        /// Initializes a new instance of the <see cref="RawImage"/> class.
         /// </summary>
         /// <param name="pixelFormat">The pixel format of the image.</param>
         /// <param name="size">The actual size of the image.</param>
@@ -31,7 +31,7 @@ namespace ClrCoder.Imaging.Raw
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RawImage"/> class. 
+        /// Initializes a new instance of the <see cref="RawImage"/> class.
         /// </summary>
         /// <param name="pixelFormat">The pixel format of the image.</param>
         /// <param name="size">The actual size of the image.</param>

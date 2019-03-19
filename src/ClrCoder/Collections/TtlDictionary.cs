@@ -1,4 +1,4 @@
-﻿// <copyright file="TtlDictionary.cs" company="ClrCoder project">
+// <copyright file="TtlDictionary.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -189,7 +189,7 @@ namespace ClrCoder.Collections
                 {
                     Entry entry;
                     return this._entries.TryGetValue(item.Key, out entry)
-                           && Comparer<TValue>.Default.Compare(entry.Value, item.Value) == 0;
+                            && Comparer<TValue>.Default.Compare(entry.Value, item.Value) == 0;
                 }
             }
         }

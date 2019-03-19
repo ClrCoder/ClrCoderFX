@@ -1,4 +1,4 @@
-﻿// <copyright file="IxHost.IxResolver.cs" company="ClrCoder project">
+// <copyright file="IxHost.IxResolver.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -54,7 +54,7 @@ namespace ClrCoder.ComponentModel.IndirectX
             IxProviderNode IIxInstance.ProviderNode => Host._rootScope;
 
             Task IIxInstance.ObjectCreationTask => throw new NotSupportedException(
-                                                       "This is virtual instance and always created.");
+                                                        "This is virtual instance and always created.");
 
             public object Object => this;
 
@@ -139,7 +139,7 @@ namespace ClrCoder.ComponentModel.IndirectX
                 ////throw new NotSupportedException(
                 ////    "This is completely virtual object and cannot be locked/unlocked.");
 
-                // Do nothing. 
+                // Do nothing.
             }
 
             void IIxInstance.RemoveOwnedLock(IIxInstanceLock instanceLock)

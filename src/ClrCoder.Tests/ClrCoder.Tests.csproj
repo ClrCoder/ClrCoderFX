@@ -21,7 +21,7 @@
     <EmbeddedResource Remove="Dsp\**" />
     <None Remove="Dsp\**" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <PackageReference Include="System.Threading.Tasks.DataFlow" Version="4.6.0" />
-  </ItemGroup>  
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>

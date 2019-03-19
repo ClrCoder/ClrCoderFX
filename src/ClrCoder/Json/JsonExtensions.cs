@@ -1,4 +1,4 @@
-﻿// <copyright file="JsonExtensions.cs" company="ClrCoder project">
+// <copyright file="JsonExtensions.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -42,8 +42,8 @@ namespace ClrCoder
             memStream.Position = 0;
 
             using (StreamReader sr = encoding != null
-                                         ? new StreamReader(memStream, encoding)
-                                         : new StreamReader(memStream))
+                                        ? new StreamReader(memStream, encoding)
+                                        : new StreamReader(memStream))
             {
                 using (var jsonReader = new JsonTextReader(sr))
                 {

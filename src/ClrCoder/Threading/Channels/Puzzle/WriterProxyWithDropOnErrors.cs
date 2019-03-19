@@ -1,4 +1,4 @@
-﻿// <copyright file="WriterProxyWithDropOnErrors.cs" company="ClrCoder project">
+// <copyright file="WriterProxyWithDropOnErrors.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -59,8 +59,8 @@ namespace ClrCoder.Threading.Channels.Puzzle
         public override bool TryComplete(Exception error = null)
         {
             bool result =  error == null
-                       ? _writeCompletionTcs.TrySetResult(default)
-                       : _writeCompletionTcs.TrySetException(error);
+                        ? _writeCompletionTcs.TrySetResult(default)
+                        : _writeCompletionTcs.TrySetException(error);
             if (result)
             {
                 _innerWriter.TryComplete(error);

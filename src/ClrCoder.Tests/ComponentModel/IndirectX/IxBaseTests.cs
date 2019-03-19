@@ -1,4 +1,4 @@
-﻿// <copyright file="IxBaseTests.cs" company="ClrCoder project">
+// <copyright file="IxBaseTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -36,18 +36,18 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task DependencyOverrideAndUseTest()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<IDummy>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<DummyParent>())
-                                   .Add<SomeContainer>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<SomeContainer>(),
-                                       nodes:
-                                       nodes =>
-                                           nodes.Add<IDummy>(
-                                               instanceBuilder: new IxClassInstanceBuilderConfig<DummyNested>())))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<IDummy>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<DummyParent>())
+                                    .Add<SomeContainer>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<SomeContainer>(),
+                                        nodes:
+                                        nodes =>
+                                            nodes.Add<IDummy>(
+                                                instanceBuilder: new IxClassInstanceBuilderConfig<DummyNested>())))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -67,7 +67,7 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task EmptyHostCycle()
         {
             await (await new IxHostBuilder()
-                       .Build())
+                        .Build())
                 .AsyncUsing(host => Task.CompletedTask);
         }
 
@@ -79,12 +79,12 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Exception_from_constructor_should_rise_up_to_resolve()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<DummyWithError>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<DummyWithError>()))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<DummyWithError>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<DummyWithError>()))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -112,7 +112,7 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Host_should_be_resolved_by_interface()
         {
             await (await new IxHostBuilder()
-                       .Build())
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -131,13 +131,13 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Self_object_dispose_test()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<DummyDisposable>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<DummyDisposable>(),
-                                       multiplicity: new IxPerResolveMultiplicityConfig()))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<DummyDisposable>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<DummyDisposable>(),
+                                        multiplicity: new IxPerResolveMultiplicityConfig()))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -175,14 +175,14 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Auto_dispose_test()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<DummyDisposable>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<DummyDisposable>(),
-                                       multiplicity: new IxPerResolveMultiplicityConfig(),
-                                       autoDisposeEnabled: true))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<DummyDisposable>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<DummyDisposable>(),
+                                        multiplicity: new IxPerResolveMultiplicityConfig(),
+                                        autoDisposeEnabled: true))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                     {
@@ -221,18 +221,18 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task Self_registered_should_be_resolved()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<Dummy>(
-                                       instanceBuilder: new IxClassInstanceBuilderConfig<Dummy>(),
-                                       nodes:
-                                       nodes =>
-                                           nodes.Add<string>(
-                                               instanceBuilder: new IxExistingInstanceFactoryConfig<string>(
-                                                   "Test me!")))
-                       )
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<Dummy>(
+                                        instanceBuilder: new IxClassInstanceBuilderConfig<Dummy>(),
+                                        nodes:
+                                        nodes =>
+                                            nodes.Add<string>(
+                                                instanceBuilder: new IxExistingInstanceFactoryConfig<string>(
+                                                    "Test me!")))
+                        )
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {

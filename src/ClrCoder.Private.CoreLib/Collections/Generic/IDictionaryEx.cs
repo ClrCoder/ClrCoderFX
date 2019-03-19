@@ -1,4 +1,4 @@
-﻿// <copyright file="IDictionaryEx.cs" company="ClrCoder project">
+// <copyright file="IDictionaryEx.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -25,8 +25,8 @@ namespace System.Collections.Generic
     /// <typeparam name="TValue">The type of values in the read-only dictionary.</typeparam>
     [PublicAPI]
     public interface IDictionaryEx<TKey, TValue> : IDictionary<TKey, TValue>,
-                                                   ICollectionEx<KeyValuePair<TKey, TValue>>,
-                                                   IReadOnlyDictionaryEx<TKey, TValue>
+                                                    ICollectionEx<KeyValuePair<TKey, TValue>>,
+                                                    IReadOnlyDictionaryEx<TKey, TValue>
     {
     }
 }

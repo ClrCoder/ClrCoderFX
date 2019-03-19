@@ -1,4 +1,4 @@
-﻿// <copyright file="IxDelegateInstanceBuilderTests.cs" company="ClrCoder project">
+// <copyright file="IxDelegateInstanceBuilderTests.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -31,20 +31,20 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task ExceptionInDelegateTest()
         {
             Task testTask = (await new IxHostBuilder()
-                                 .Configure(
-                                     rootNodes =>
-                                         rootNodes
-                                             .Add<Dummy>(
-                                                 instanceBuilder:
-                                                 new IxClassInstanceBuilderConfig<Dummy>())
-                                             .Add<AnotherDummy>(
-                                                 instanceBuilder:
-                                                 IxDelegateInstanceBuilderConfig.New<Dummy, AnotherDummy>(
-                                                     async dummy =>
-                                                         {
-                                                             throw new InvalidOperationException("My Error");
-                                                         })))
-                                 .Build())
+                                .Configure(
+                                    rootNodes =>
+                                        rootNodes
+                                            .Add<Dummy>(
+                                                instanceBuilder:
+                                                new IxClassInstanceBuilderConfig<Dummy>())
+                                            .Add<AnotherDummy>(
+                                                instanceBuilder:
+                                                IxDelegateInstanceBuilderConfig.New<Dummy, AnotherDummy>(
+                                                    async dummy =>
+                                                        {
+                                                            throw new InvalidOperationException("My Error");
+                                                        })))
+                                .Build())
                 .AsyncUsing(
                     async host =>
                         {
@@ -66,17 +66,17 @@ namespace ClrCoder.Tests.ComponentModel.IndirectX
         public async Task SimpleTest()
         {
             await (await new IxHostBuilder()
-                       .Configure(
-                           rootNodes =>
-                               rootNodes
-                                   .Add<Dummy>(
-                                       instanceBuilder:
-                                       new IxClassInstanceBuilderConfig<Dummy>())
-                                   .Add<AnotherDummy>(
-                                       instanceBuilder:
-                                       IxDelegateInstanceBuilderConfig.New<Dummy, AnotherDummy>(
-                                           async dummy => new AnotherDummy(dummy))))
-                       .Build())
+                        .Configure(
+                            rootNodes =>
+                                rootNodes
+                                    .Add<Dummy>(
+                                        instanceBuilder:
+                                        new IxClassInstanceBuilderConfig<Dummy>())
+                                    .Add<AnotherDummy>(
+                                        instanceBuilder:
+                                        IxDelegateInstanceBuilderConfig.New<Dummy, AnotherDummy>(
+                                            async dummy => new AnotherDummy(dummy))))
+                        .Build())
                 .AsyncUsing(
                     async host =>
                         {

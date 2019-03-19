@@ -1,4 +1,4 @@
-﻿// <copyright file="BatchModeBuffer.BatchModeBufferWriter.cs" company="ClrCoder project">
+// <copyright file="BatchModeBuffer.BatchModeBufferWriter.cs" company="ClrCoder project">
 // Copyright (c) ClrCoder project. All rights reserved.
 // Licensed under the Apache 2.0 license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -111,7 +111,7 @@ namespace ClrCoder.Threading.Channels
                         var sliceEntry = _owner._sliceEntries.Last?.Value;
 
                         if ((sliceEntry == null) || (sliceEntry.Status != SliceEntryStatus.Data)
-                                                 || !sliceEntry.TryWriteLast(item))
+                                                || !sliceEntry.TryWriteLast(item))
                         {
                             _owner.AllocateNewEntry().TryWriteLast(item);
                         }
@@ -150,7 +150,7 @@ namespace ClrCoder.Threading.Channels
                                 var sliceEntry = _owner._sliceEntries.Last?.Value;
 
                                 if ((sliceEntry == null) || (sliceEntry.Status != SliceEntryStatus.Data)
-                                                         || !sliceEntry.TryWriteLast(item))
+                                                        || !sliceEntry.TryWriteLast(item))
                                 {
                                     _owner.AllocateNewEntry().TryWriteLast(item);
                                 }
