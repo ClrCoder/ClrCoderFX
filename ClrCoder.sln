@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28621.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClrCoder", "src\ClrCoder\ClrCoder.csproj", "{A8A490AF-9B05-4137-A985-3D6EB8DF836F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClrCoder.AspNetCore", "src\ClrCoder.AspNetCore\ClrCoder.AspNetCore.csproj", "{EBE99741-A4D6-400A-8D36-13CF141BE550}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClrCoder.Testing", "src\ClrCoder.Testing\ClrCoder.Testing.csproj", "{EBD17201-CA98-4898-AEFA-DECD194CDD2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClrCoder.Tests", "src\ClrCoder.Tests\ClrCoder.Tests.csproj", "{8A7DC4A1-A14F-4A07-83E6-651961F041F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClrCoder.Threading.AsyncDisposable", "src\ClrCoder.Threading.AsyncDisposable\ClrCoder.Threading.AsyncDisposable.csproj", "{6AB7131D-6F35-45B8-9C55-F6A370EF9DA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8A490AF-9B05-4137-A985-3D6EB8DF836F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A490AF-9B05-4137-A985-3D6EB8DF836F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A490AF-9B05-4137-A985-3D6EB8DF836F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A490AF-9B05-4137-A985-3D6EB8DF836F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE99741-A4D6-400A-8D36-13CF141BE550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE99741-A4D6-400A-8D36-13CF141BE550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE99741-A4D6-400A-8D36-13CF141BE550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE99741-A4D6-400A-8D36-13CF141BE550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD17201-CA98-4898-AEFA-DECD194CDD2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD17201-CA98-4898-AEFA-DECD194CDD2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD17201-CA98-4898-AEFA-DECD194CDD2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD17201-CA98-4898-AEFA-DECD194CDD2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7DC4A1-A14F-4A07-83E6-651961F041F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7DC4A1-A14F-4A07-83E6-651961F041F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7DC4A1-A14F-4A07-83E6-651961F041F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7DC4A1-A14F-4A07-83E6-651961F041F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AB7131D-6F35-45B8-9C55-F6A370EF9DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB7131D-6F35-45B8-9C55-F6A370EF9DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB7131D-6F35-45B8-9C55-F6A370EF9DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB7131D-6F35-45B8-9C55-F6A370EF9DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {659A5AC2-DB2E-4A01-ACC2-607C100E6D93}
+	EndGlobalSection
+EndGlobal
