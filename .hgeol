@@ -1,9 +1,18 @@
 [patterns]
+# These settings should corresponds to .gitattributes
+**.sh = LF
+**.DotSettings = LF
+
 ** = native
-#**.py = native // Just examples
+
+[repository]
+native = LF
+
+###############################################################################
+#Examples
+###############################################################################
+#**.py = native
 #**.txt = native
 #**.vcproj = CRLF
 #Makefile = LF
-**.jpg = BIN
-[repository]
-native = LF
+#**.jpg = BIN
