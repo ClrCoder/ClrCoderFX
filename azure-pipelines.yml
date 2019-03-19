@@ -1,0 +1,51 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+strategy:
+  matrix:
+    linux-rules:
+      imageName: 'Ubuntu-16.04'
+      mode: 'Rules'
+    windows-rules:
+      imageName: 'vs2017-win2016'
+      mode: 'Rules'
+    linux-x64-release:
+      imageName: 'Ubuntu-16.04'
+      mode: 'Release'
+    windows-x64-release:
+      imageName: 'vs2017-win2016'
+      mode: 'Release'
+    linux-x64-debug:
+      imageName: 'Ubuntu-16.04'
+      mode: 'Debug'
+    windows-x64-debug:
+      imageName: 'vs2017-win2016'
+      mode: 'Debug'
+
+trigger:
+- master
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: ">=10.0"
+- powershell: |
+    ./scripts/ps-environment.ps1 -Fix
+    ./build/environment-check.ps1
+    ./scripts/ensure-deps.ps1
+  displayName: "Build environment check and preparation"
+
+- powershell: |
+    ./build/ci/rules-check.ps1
+  condition: eq( variables.mode, 'Rules')
+  displayName: "Checking repository rules"
+
+- script: |
+    dotnet msbuild -restore /t:rebuild /p:Configuration=$(mode) /p:Platform=x64 /warnaserror
+  condition: ne( variables.mode, 'Rules')
+  displayName: "Build solution"
